@@ -1,0 +1,94 @@
+==2133== Memcheck, a memory error detector
+==2133== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==2133== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==2133== Command: ./pa07 inputs/input0_A inputs/input0_B
+==2133== Parent PID: 2125
+==2133== 
+--2133-- 
+--2133-- Valgrind options:
+--2133--    --leak-check=full
+--2133--    --verbose
+--2133--    --log-file=valgrind_log
+--2133-- Contents of /proc/version:
+--2133--   Linux version 2.6.32-358.18.1.el6.x86_64 (mockbuild@x86-003.build.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) ) #1 SMP Fri Aug 2 17:04:38 EDT 2013
+--2133-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--2133-- Page sizes: currently 4096, max supported 4096
+--2133-- Valgrind library directory: /usr/lib64/valgrind
+--2133-- Reading syms from /home/shay/b/li1114/ECE264/0001/PA07/pa07
+--2133-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--2133--    object doesn't have a dynamic symbol table
+--2133-- Reading syms from /lib64/ld-2.12.so
+--2133-- Scheduler: using generic scheduler lock implementation.
+--2133-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==2133== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-2133-by-li1114-on-ecelinux17.ecn.purdue.edu
+==2133== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-2133-by-li1114-on-ecelinux17.ecn.purdue.edu
+==2133== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-2133-by-li1114-on-ecelinux17.ecn.purdue.edu
+==2133== 
+==2133== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==2133== don't want to do, unless you know exactly what you're doing,
+==2133== or are doing some strange experiment):
+==2133==   /usr/lib64/valgrind/../../bin/vgdb --pid=2133 ...command...
+==2133== 
+==2133== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==2133==   /path/to/gdb ./pa07
+==2133== and then give GDB the following command
+==2133==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=2133
+==2133== --pid is optional if only one valgrind process is running
+==2133== 
+--2133-- REDIR: 0x350c617520 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--2133-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--2133-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--2133-- REDIR: 0x350c617390 (index) redirected to 0x4a07bf0 (index)
+--2133-- REDIR: 0x350c617410 (strcmp) redirected to 0x4a08530 (strcmp)
+--2133-- Reading syms from /lib64/libc-2.12.so
+--2133-- REDIR: 0x350ca84ec0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--2133-- REDIR: 0x350ca87180 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--2133-- REDIR: 0x350ca82e30 (__GI_strrchr) redirected to 0x4a07a70 (__GI_strrchr)
+--2133-- REDIR: 0x350ca7a8e0 (malloc) redirected to 0x4a0696c (malloc)
+--2133-- REDIR: 0x350ca7b710 (free) redirected to 0x4a06369 (free)
+--2133-- REDIR: 0x350ca81350 (__GI_strlen) redirected to 0x4a07f70 (__GI_strlen)
+--2133-- REDIR: 0x350ca846f0 (mempcpy) redirected to 0x4a09f80 (mempcpy)
+--2133-- REDIR: 0x350ca8ace0 (strchrnul) redirected to 0x4a09f10 (strchrnul)
+==2133== Stack overflow in thread 1: can't grow stack to 0x7fe601ff8
+==2133== 
+==2133== Process terminating with default action of signal 11 (SIGSEGV)
+==2133==  Access not within mapped region at address 0x7FE601FF8
+==2133==    at 0x400B74: merge_insert (answer07.c:262)
+==2133==  If you believe this happened as a result of a stack
+==2133==  overflow in your program's main thread (unlikely but
+==2133==  possible), you can try to increase the size of the
+==2133==  main thread stack using the --main-stacksize= flag.
+==2133==  The main thread stack size used in this run was 10485760.
+==2133== Stack overflow in thread 1: can't grow stack to 0x7fe601ff0
+==2133== 
+==2133== Process terminating with default action of signal 11 (SIGSEGV)
+==2133==  Access not within mapped region at address 0x7FE601FF0
+==2133==    at 0x4801661: _vgnU_freeres (vg_preloaded.c:58)
+==2133==  If you believe this happened as a result of a stack
+==2133==  overflow in your program's main thread (unlikely but
+==2133==  possible), you can try to increase the size of the
+==2133==  main thread stack using the --main-stacksize= flag.
+==2133==  The main thread stack size used in this run was 10485760.
+==2133== 
+==2133== HEAP SUMMARY:
+==2133==     in use at exit: 192 bytes in 12 blocks
+==2133==   total heap usage: 18 allocs, 6 frees, 1,376 bytes allocated
+==2133== 
+==2133== Searching for pointers to 12 not-freed blocks
+==2133== Checked 7,054,392 bytes
+==2133== 
+==2133== LEAK SUMMARY:
+==2133==    definitely lost: 0 bytes in 0 blocks
+==2133==    indirectly lost: 0 bytes in 0 blocks
+==2133==      possibly lost: 0 bytes in 0 blocks
+==2133==    still reachable: 192 bytes in 12 blocks
+==2133==         suppressed: 0 bytes in 0 blocks
+==2133== Reachable blocks (those to which a pointer was found) are not shown.
+==2133== To see them, rerun with: --leak-check=full --show-reachable=yes
+==2133== 
+==2133== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
+--2133-- 
+--2133-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--2133-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==2133== 
+==2133== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)

@@ -1,0 +1,86 @@
+==3770== Memcheck, a memory error detector
+==3770== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==3770== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==3770== Command: ./pa04 inputs/input03
+==3770== Parent PID: 3769
+==3770== 
+--3770-- 
+--3770-- Valgrind options:
+--3770--    --tool=memcheck
+--3770--    --leak-check=full
+--3770--    --verbose
+--3770--    --log-file=outputs/memoutput3
+--3770-- Contents of /proc/version:
+--3770--   Linux version 2.6.32-358.18.1.el6.x86_64 (mockbuild@x86-003.build.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) ) #1 SMP Fri Aug 2 17:04:38 EDT 2013
+--3770-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--3770-- Page sizes: currently 4096, max supported 4096
+--3770-- Valgrind library directory: /usr/lib64/valgrind
+--3770-- Reading syms from /home/shay/b/li1114/ECE264/0001/PA04/pa04
+--3770-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--3770--    object doesn't have a dynamic symbol table
+--3770-- Reading syms from /lib64/ld-2.12.so
+--3770-- Scheduler: using generic scheduler lock implementation.
+--3770-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==3770== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-3770-by-li1114-on-ecelinux06.ecn.purdue.edu
+==3770== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-3770-by-li1114-on-ecelinux06.ecn.purdue.edu
+==3770== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-3770-by-li1114-on-ecelinux06.ecn.purdue.edu
+==3770== 
+==3770== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==3770== don't want to do, unless you know exactly what you're doing,
+==3770== or are doing some strange experiment):
+==3770==   /usr/lib64/valgrind/../../bin/vgdb --pid=3770 ...command...
+==3770== 
+==3770== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==3770==   /path/to/gdb ./pa04
+==3770== and then give GDB the following command
+==3770==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=3770
+==3770== --pid is optional if only one valgrind process is running
+==3770== 
+--3770-- REDIR: 0x3585017520 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--3770-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--3770-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--3770-- REDIR: 0x3585017390 (index) redirected to 0x4a07bf0 (index)
+--3770-- REDIR: 0x3585017410 (strcmp) redirected to 0x4a08530 (strcmp)
+--3770-- Reading syms from /lib64/libm-2.12.so
+--3770-- Reading syms from /lib64/libc-2.12.so
+--3770-- REDIR: 0x3585484ec0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--3770-- REDIR: 0x3585487180 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--3770-- REDIR: 0x3585482e30 (__GI_strrchr) redirected to 0x4a07a70 (__GI_strrchr)
+--3770-- REDIR: 0x3585481350 (__GI_strlen) redirected to 0x4a07f70 (__GI_strlen)
+--3770-- REDIR: 0x35854846f0 (mempcpy) redirected to 0x4a09f80 (mempcpy)
+--3770-- REDIR: 0x358547a8e0 (malloc) redirected to 0x4a0696c (malloc)
+--3770-- REDIR: 0x358548ace0 (strchrnul) redirected to 0x4a09f10 (strchrnul)
+--3770-- REDIR: 0x358547b710 (free) redirected to 0x4a06369 (free)
+==3770== Invalid read of size 4
+==3770==    at 0x4009F6: partition_decrease (answer04.c:172)
+==3770==    by 0x400989: partitionDecreasing (answer04.c:154)
+==3770==    by 0x400F06: main (pa04.c:40)
+==3770==  Address 0x4c382bc is 4 bytes before a block of size 400,000 alloc'd
+==3770==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+==3770==    by 0x40095A: partitionDecreasing (answer04.c:152)
+==3770==    by 0x400F06: main (pa04.c:40)
+==3770== 
+==3770== 
+==3770== HEAP SUMMARY:
+==3770==     in use at exit: 0 bytes in 0 blocks
+==3770==   total heap usage: 2 allocs, 2 frees, 400,568 bytes allocated
+==3770== 
+==3770== All heap blocks were freed -- no leaks are possible
+==3770== 
+==3770== ERROR SUMMARY: 10 errors from 1 contexts (suppressed: 6 from 6)
+==3770== 
+==3770== 10 errors in context 1 of 1:
+==3770== Invalid read of size 4
+==3770==    at 0x4009F6: partition_decrease (answer04.c:172)
+==3770==    by 0x400989: partitionDecreasing (answer04.c:154)
+==3770==    by 0x400F06: main (pa04.c:40)
+==3770==  Address 0x4c382bc is 4 bytes before a block of size 400,000 alloc'd
+==3770==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+==3770==    by 0x40095A: partitionDecreasing (answer04.c:152)
+==3770==    by 0x400F06: main (pa04.c:40)
+==3770== 
+--3770-- 
+--3770-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--3770-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==3770== 
+==3770== ERROR SUMMARY: 10 errors from 1 contexts (suppressed: 6 from 6)
